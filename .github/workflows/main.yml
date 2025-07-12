@@ -20,7 +20,7 @@ jobs:
           python-version: '3.x'
 
       - name: Run version generator
-        run: python Updateversion.py
+        run: python Update_version.py
 
       - name: Commit updated version.json
         env:
