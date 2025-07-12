@@ -1,1 +1,13 @@
-
+{
+  "version": 1,
+  "files": [
+    "Config/config.py",
+    "PyModules/gemini_agent.py",
+    "PyModules/ota.py",
+    "PyModules/webserver.py",
+    "Tests/test0.py",
+    "Tools/ota_updater.py",
+    "boot.py",
+    "webrepl_cfg.py"
+  ]
+}
