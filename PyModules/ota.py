@@ -8,19 +8,10 @@ from time import sleep
 class OTAUpdater:
     """OTA updater: auto-downloads & installs multiple files from GitHub based on version.json"""
 
-    def __init__(self, ssid, password, repo_url):
+    def __init__(self, ssid, password, base_url):
         self.ssid = ssid
         self.password = password
-        self.repo_url = repo_url
-
-        if "github.com" in self.repo_url:
-            print(f"Converting repo URL to raw.githubusercontent...")
-            self.repo_url = self.repo_url.replace("www.github", "raw.githubusercontent").replace("github", "raw.githubusercontent")
-
-        if not self.repo_url.endswith('/'):
-            self.repo_url += '/'
-
-        self.base_url = self.repo_url + "main/"
+        self.base_url = base_url
         self.version_url = self.base_url + "version.json"
 
         if 'version.json' in os.listdir():
