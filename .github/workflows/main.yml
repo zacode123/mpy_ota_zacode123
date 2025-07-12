@@ -21,9 +21,12 @@ jobs:
         run: python Update_version.py
 
       - name: Commit updated version.json
+        env:
+          TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "AutoUpdater"
+          git config user.email "autoupdate@example.com"
           git add version.json
-          git commit -m "Auto-update version.json"
-          git push
+          git commit -m "Auto-update version.json" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git push origin main
