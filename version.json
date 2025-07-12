@@ -1,14 +1,15 @@
 {
-  "version": 2,
+  "version": 3,
   "files": [
     "Config/config.py",
     "Examples/Nothing",
     "PyModules/gemini_agent.py",
     "PyModules/ota.py",
     "PyModules/webserver.py",
-    "Tests/test0.py",
     "Tests/index.html",
+    "Tests/test0.py",
     "Tools/ota_updater.py",
+    "Update_version.py",
     "boot.py",
     "webrepl_cfg.py"
   ]
