@@ -3,7 +3,7 @@ import json
 
 EXCLUDE_FILES = {
     "version.json",
-    "generate_version.py"
+    "Update_version.py"
 }
 EXCLUDE_DIRS = {
     ".git", ".github", "__pycache__"
