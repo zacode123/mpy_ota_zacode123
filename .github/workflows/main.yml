@@ -3,6 +3,8 @@ name: Auto Update version.json
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'version.json'
 
 jobs:
   update-version:
@@ -18,7 +20,7 @@ jobs:
           python-version: 3.x
 
       - name: Run version generator
-        run: python Update_version.py
+        run: python generate_version.py
 
       - name: Commit updated version.json
         env:
