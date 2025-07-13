@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "files": [
     "Config/config.py",
-    "Examples/Nothing",
+    "Examples/Display.py",
     "PyModules/7_Segment_display.py",
     "PyModules/gemini_agent.py",
     "PyModules/ota.py",
