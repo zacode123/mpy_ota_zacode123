@@ -73,6 +73,19 @@ class OTAUpdater:
             print(f"Error downloading {filepath}: {e}")
 
     def update_all_files(self):
+        existing_files = self._list_all_files()
+        files_to_keep = set(self.files_to_update + ['version.json'])
+
+        # Delete files not in version.json
+        for file in existing_files:
+            if file not in files_to_keep:
+                try:
+                    os.remove(file)
+                    print(f"Deleted outdated file: {file}")
+                except Exception as e:
+                    print(f"Failed to delete {file}: {e}")
+
+        # Update or download files
         for file in self.files_to_update:
             self.download_and_save_file(file)
 
@@ -80,6 +93,16 @@ class OTAUpdater:
         with open('version.json', 'w') as f:
             json.dump({'version': self.latest_version}, f)
 
+    def _list_all_files(self, base_path=""):
+        files = []
+        for entry in os.listdir(base_path or "/"):
+            full_path = (base_path + "/" + entry).strip("/")
+            if os.stat(full_path)[0] & 0x4000:  # directory
+                files.extend(self._list_all_files(full_path))
+            else:
+                files.append(full_path)
+        return files
+        
     def download_and_install_update_if_available(self):
         if self.check_for_updates():
             print("New version available. Updating...")
