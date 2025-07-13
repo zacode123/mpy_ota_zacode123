@@ -1,9 +1,8 @@
 {
-  "version": 2,
+  "version": 3,
   "files": [
     "Config/config.py",
     "Examples/Display.py",
-    "PyModules/7_Segment_display.py",
     "PyModules/gemini_agent.py",
     "PyModules/ota.py",
     "PyModules/webserver.py",
@@ -11,6 +10,7 @@
     "Tests/test0.py",
     "Tools/ota_updater.py",
     "boot.py",
+    "segment_display.py",
     "webrepl_cfg.py"
   ]
 }
