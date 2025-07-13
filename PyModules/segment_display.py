@@ -1,4 +1,5 @@
 from machine import Pin
+from time import sleep_ms
 
 D0 = Pin(16, Pin.OUT)
 D1 = Pin(5, Pin.OUT)
